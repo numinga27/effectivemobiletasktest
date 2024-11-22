@@ -5,9 +5,11 @@ from typing import List, Dict, Any
 
 class Book:
     """Класс для представления книги."""
+    _id_counter = 1  # Статическая переменная для отслеживания последнего ID
 
     def __init__(self, id: int, title: str, author: str, year: int, status: str = "в наличии"):
-        self.id = id
+        self.id = Book._id_counter  # Присваиваем текущий ID
+        Book._id_counter += 1  # Увеличиваем счетчик для следующей книги
         self.title = title
         self.author = author
         self.year = year
